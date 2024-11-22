@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microfrontend 2</title>
+</head>
+<body>
+  <h1>Microfrontend 2</h1>
+  <button onclick="fetchMessage()">Get Message</button>
+  <p id="response"></p>
+  <script>
+    function fetchMessage() {
+      fetch('/api/message')
+        .then((res) => res.json())
+        .then((data) => {
+          document.getElementById('response').innerText = data.message;
+        })
+        .catch((err) => {
+          document.getElementById('response').innerText = 'Error fetching message.';
+        });
+    }
+  </script>
+</body>
+</html>
