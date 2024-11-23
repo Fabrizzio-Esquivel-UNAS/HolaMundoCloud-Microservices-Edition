@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  container:
+    build:
+      context: ./container
+    ports:
+      - "80:8080"
+    restart: always
+    networks:
+      - nodejs-network
+
+  microfrontend1:
+    build:
+      context: ./microfrontend1
+    ports:
+      - "1024:3001"
+    restart: always
+    networks:
+      - nodejs-network
+
+  microfrontend2:
+    build:
+      context: ./microfrontend2
+    ports:
+      - "1025:3002"
+    restart: always
+    networks:
+      - nodejs-network
+
+  microfrontend3:
+    build:
+      context: ./microfrontend3
+    ports:
+      - "1026:3003"
+    restart: always
+    networks:
+      - nodejs-network
+
+networks:
+  nodejs-network:
+    driver: bridge

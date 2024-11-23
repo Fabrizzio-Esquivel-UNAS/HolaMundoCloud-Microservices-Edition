@@ -1,1 +1,5 @@
-node_modules
+node_modules/
+terraform/.terraform/
+terraform/tfplan
+terraform/terraform.tfvars
+HolaMundoCloudKey.pem
